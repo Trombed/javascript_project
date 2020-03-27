@@ -1,4 +1,4 @@
-import Bullet from "../dist/bullets";
+import Bullet from "./bullets";
 
 class Player {
     constructor(ctx, game) {
@@ -6,6 +6,7 @@ class Player {
         this.ctx = ctx
         this.speed = 0.0
         this.health = 0
+        this.direction 
         this.pos = {
             x: 100,
             y: 100
@@ -15,13 +16,15 @@ class Player {
             x: 0,
             y: 0
         }
- 
+        this.lastFire = new Date()
         this.speed = 0;
         this.angle = "Up"
         this.height = this.ctx.canvas.height;
         this.width = this.ctx.canvas.width;
         this.currentWeapon = ["Assault Rifle","Pistol"]
-
+        this.image = new Image()
+        this.image.src =  "../src/sprites/player.png"
+   
     }
 
 
@@ -46,22 +49,23 @@ class Player {
     }
 
     shootBullet() {
-  
-
-        this.game.bullets.push(new Bullet(this.pos, this.ctx, this.cursorPos))
-       
-       
+        this.newFire = new Date()
+        if ((this.newFire - this.lastFire) > 500) {
+        this.game.bullets.push(new Bullet(this.pos, this.ctx, this.cursorPos, this.game))
+            this.lastFire = this.newFire
+        }
+    
     }
 
     changeWeapon() {
         [this.currentWeapon[0], this.currentWeapon[1]] =
         [this.currentWeapon[1], this.currentWeapon[0]]
-        console.log(this.cursorPos)
+
     }
 
 
     draw() {
-        
+        this.ctx.clearRect(0,0,this.width,this.height)
         this.ctx.strokeStyle = "#FF0000";
         this.ctx.strokeRect( this.pos.x, this.pos.y, 20, 20)
         ;
@@ -69,7 +73,9 @@ class Player {
         this.ctx.fillStyle = "red";
         this.ctx.fillText(this.currentWeapon[0],330, 380);
 
+     
     }
+
 
  
 

@@ -21,16 +21,15 @@ class Control {
             this.player.changeWeapon();
         } if (this.keys["KeyN"]) {
 
-            console.log(e)
-            console.log(window)
+
         }
-        this.player.latestAngle(this.keys)
+
         } 
         )
     
       
       document.addEventListener("keyup", event =>{  
-          this.player.latestAngle(this.keys)
+     
           this.keys[event.code] = false;
       })
 
@@ -42,7 +41,7 @@ class Control {
       canvas.addEventListener("mousemove", event => (
           this.player.cursorPos.x = event.layerX,
           this.player.cursorPos.y = event.layerY
-            // console.log([this.player.cursorPos.x, this.player.cursorPos.y])
+
       ))
     }
 }
