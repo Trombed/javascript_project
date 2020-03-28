@@ -10,8 +10,8 @@ class EnemyProjectile extends MovingObject{
         this.height = 5;
         this.gameHeight = game.height;
         this.gameWidth = game.width
-        this.x = pos.x + (width /  2);
-        this.y = pos.y + (height / 2)
+        this.x = pos.x;
+        this.y = pos.y;
 
         var deltaX = this.player.pos.x - (this.pos.x + this.width/2) + (Math.random() * 100) ;
         var deltaY = this.player.pos.y - (this.pos.y + this.height/2) + (Math.random() * 100);
@@ -39,7 +39,7 @@ class EnemyProjectile extends MovingObject{
         this.ctx.strokeStyle = "green";
    
         this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, 2, 0, 2 * Math.PI);
+        this.ctx.arc(this.x + (this.width /  2), this.y + (this.height /  2), 2, 0, 2 * Math.PI);
         this.ctx.stroke();
     }
 }

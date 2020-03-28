@@ -8,7 +8,7 @@ class Boss extends MovingObject {
         super(game)
         this.player = game.player;
         this.ctx = game.ctx;
-        this.health = 2;
+        this.health = 50;
         this.pos = {
             x: this.startingPos(),
             y: this.startingPos()
@@ -54,7 +54,7 @@ class Boss extends MovingObject {
 
     fire() {
         const date = new Date();
-        if (date - this.lastFire > 1000) {
+        if (date - this.lastFire > 500) {
             this.game.projectiles.push(new EnemyProjectile(this.game, this.pos, this.width, this.height))
             this.lastFire = date;
       

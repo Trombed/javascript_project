@@ -103,6 +103,13 @@ class Game {
                 ))
             }
 
+            for (let i = 0; i < this.projectiles.length; i++) {
+                
+                    const projectile = this.projectiles[i];
+                    projectile.isCollidedWith(this.player)
+                }
+            
+
             this.ctx.font = "30px Arial";
             this.ctx.fillStyle = "red";
             this.ctx.clearRect(0,500,this.width,this.height+100)
@@ -113,7 +120,7 @@ class Game {
             
 
 
-
+    
         
         } if (this.paused) {
             this.ctx.font = "48px Arial";
