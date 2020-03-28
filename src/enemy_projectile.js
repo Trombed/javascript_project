@@ -1,17 +1,17 @@
 import MovingObject from "./moving_object";
 
 class EnemyProjectile extends MovingObject{
-    constructor(game, ctx, player, pos) {
+    constructor(game, pos, width, height) {
         super(game)
-        this.ctx = ctx;
-        this.player = player
-        this.pos = pos
+        this.ctx = game.ctx;
+        this.player = game.player;
+        this.pos = pos;
         this.width = 5;
         this.height = 5;
         this.gameHeight = game.height;
         this.gameWidth = game.width
-        this.x = pos.x;
-        this.y = pos.y
+        this.x = pos.x + (width /  2);
+        this.y = pos.y + (height / 2)
 
         var deltaX = this.player.pos.x - (this.pos.x + this.width/2) + (Math.random() * 100) ;
         var deltaY = this.player.pos.y - (this.pos.y + this.height/2) + (Math.random() * 100);

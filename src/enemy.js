@@ -53,7 +53,7 @@ class Enemy extends MovingObject {
     fire() {
         const date = new Date();
         if (date - this.lastFire > 1000) {
-            this.game.projectiles.push(new EnemyProjectile(this.game, this.ctx, this.player, this.pos))
+            this.game.projectiles.push(new EnemyProjectile(this.game, this.pos, this.width, this.height))
             this.lastFire = date;
       
         }

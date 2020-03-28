@@ -5,7 +5,7 @@ class Player {
         this.game = game;
         this.ctx = ctx
    
-        this.health = 0
+        this.health = 10
         this.direction 
         this.pos = {
             x: 100,
