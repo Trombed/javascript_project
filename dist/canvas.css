@@ -1,3 +1,10 @@
 #game-canvas {
     border: 1px solid black;
 }
+
+.Main {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: white; 
+}

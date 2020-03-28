@@ -3,18 +3,19 @@ import MovingObject from "./moving_object";
 import EnemyProjectile from "./enemy_projectile";
 
 
-class Enemy extends MovingObject {
-    constructor(ctx,player, game) {
+class Boss extends MovingObject {
+    constructor(game) {
         super(game)
-        this.player = player;
-        this.ctx = ctx;
-        this.health = 3;
+        this.player = game.player;
+        this.ctx = game.ctx;
+        this.health = 2;
         this.pos = {
             x: this.startingPos(),
             y: this.startingPos()
         };
-        this.width = 5;
-        this.height = 5;
+        this.width = 50;
+        this.height = 50;
+        this.color = "Black"
         this.gameHeight = game.height;
         this.gameWidth = game.width;
         this.lastFire = new Date();
@@ -26,11 +27,11 @@ class Enemy extends MovingObject {
     } 
 
     startingPos() {
-        return Math.random() * this.game.height
+        return Math.random() * this.game.height;
     }
 
     draw() {
-    this.ctx.strokeStyle = "Brown";
+    this.ctx.strokeStyle = this.color;
     this.ctx.strokeRect( this.pos.x, this.pos.y, this.width,this.height)
     this.fire()
     }
@@ -39,6 +40,7 @@ class Enemy extends MovingObject {
         if (otherObject instanceof Bullet) {
             otherObject.remove();
             this.health -= 1;
+         
             if (this.health <= 0)  this.remove();
         }
     }
@@ -60,4 +62,4 @@ class Enemy extends MovingObject {
     }
 
 }
-export default Enemy;
+export default Boss;

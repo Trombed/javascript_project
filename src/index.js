@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d");
     const canvasWidth = canvas.width
     const canvasHeight = canvas.height
-    ctx.fillStyle = "gold";
+    ctx.fillStyle = "white";
     ctx.fillRect(0,0, canvasWidth,canvasHeight);
     const game = new Game(ctx, canvas);
   });
