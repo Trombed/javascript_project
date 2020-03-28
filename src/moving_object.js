@@ -21,6 +21,19 @@ class MovingObject {
         return false
     }
 
+    isBossCollidedWith(otherObject) {
+
+        if (otherObject instanceof Bullet) {
+            if (Util.distBoss(this, otherObject) ){
+                return true 
+            }
+
+            return false 
+
+        }
+        return false
+    }
+
 
     remove() {
         this.game.remove(this)

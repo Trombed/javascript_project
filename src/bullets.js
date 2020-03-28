@@ -13,13 +13,13 @@ class Bullet extends MovingObject {
         this.curX = cursor.x 
         this.curY = cursor.y
         //mouse pointer location
-        this.width = 14;
-        this.height = 14;
+        this.width = 5;
+        this.height = 5;
         //bullet height and width;
         var deltaX = this.curX - (this.x + this.width/2);
         var deltaY = this.curY - (this.y + this.height/2);
         var magnitude = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const velocityScale = 10 / magnitude;
+        const velocityScale = 15 / magnitude;
         this.velocityInstanceX = deltaX * velocityScale;
         this.velocityInstanceY = deltaY * velocityScale;
     }
@@ -27,22 +27,29 @@ class Bullet extends MovingObject {
     fire() {
         this.x += this.velocityInstanceX
         this.y += this.velocityInstanceY
-        if (this.x > this.xBound || this.x < 0) {
-         
+        if (this.x >= this.xBound || this.x <= 0) {
             this.remove(this)
+            this.drawNothing()
             
-        } else if (this.y > this.yBound || this.y < 0) {
+            
+        } if (this.y >= this.yBound || this.y <= 0) {
             this.remove(this)
-        }
-        this.draw();
+            this.drawNothing();
+            
+        } else {
 
+            this.draw();
+        }
+        
     }
 
     draw() {
         this.ctx.strokeStyle = "Black";
-        this.ctx.strokeRect( this.x, this.y, this.width, this.height)
-       
-       
+        this.ctx.strokeRect( this.x, this.y, this.width, this.height)  
+    }
+
+    drawNothing() {
+        return null;
     }
 
 }
