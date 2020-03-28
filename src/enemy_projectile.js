@@ -13,8 +13,8 @@ class EnemyProjectile extends MovingObject{
         this.x = pos.x;
         this.y = pos.y;
 
-        var deltaX = this.player.pos.x - (this.pos.x + this.width/2) + (Math.random() * 100) ;
-        var deltaY = this.player.pos.y - (this.pos.y + this.height/2) + (Math.random() * 100);
+        var deltaX = this.player.pos.x - (this.pos.x + this.width/2) + (Math.random() * 10) ;
+        var deltaY = this.player.pos.y - (this.pos.y + this.height/2) + (Math.random() * 10);
         var magnitude = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
         const velocityScale = 1 / magnitude;
         this.velocityInstanceX = deltaX * velocityScale;
