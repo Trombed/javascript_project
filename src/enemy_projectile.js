@@ -6,6 +6,8 @@ class EnemyProjectile extends MovingObject{
         this.ctx = game.ctx;
         this.player = game.player;
         this.pos = pos;
+        this.enemyWidth = width,
+        this.enemyHeight = height
         this.width = 5;
         this.height = 5;
         this.gameHeight = game.height;
@@ -39,7 +41,8 @@ class EnemyProjectile extends MovingObject{
         this.ctx.strokeStyle = "green";
    
         this.ctx.beginPath();
-        this.ctx.arc(this.x + (this.width /  2), this.y + (this.height /  2), 2, 0, 2 * Math.PI);
+        this.ctx.arc(this.x + (this.enemyWidth /  2), this.y + (this.enemyHeight /  2), 2, 0, 2 * Math.PI);
+     
         this.ctx.stroke();
     }
 }

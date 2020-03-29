@@ -8,7 +8,7 @@ class Boss extends MovingObject {
         super(game)
         this.player = game.player;
         this.ctx = game.ctx;
-        this.health = 50;
+        this.health = 3;
         this.pos = {
             x: this.startingPos(),
             y: this.startingPos()

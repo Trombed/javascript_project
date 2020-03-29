@@ -70,14 +70,8 @@ class Player {
         this.ctx.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
-    isBossCollidedWith(otherObject) {
-        if (otherObject instanceof Project) {
-            if (Util.distBoss(this, otherObject) ){
-                return true 
-            }
-            return false 
-        }
-        return false
+    collidedWith() {  
+        this.health  -= 1
     }
 
 

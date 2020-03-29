@@ -22,5 +22,17 @@ export const Util = {
         
         } 
         return false 
+    },
+
+
+    distPlayer(projectile, player) {
+       
+        const xDist = Math.abs((projectile.x ) - (player.pos.x))
+        const yDist = Math.abs((projectile.y ) - (player.pos.y))
+       
+        if (  (xDist < player.size.x && yDist < player.size.y))
+
+         { return true } 
+        return false 
     }
 }
