@@ -1,7 +1,6 @@
 import Game from "./game";
 
 
-// const GameView = require("./game_view");
 
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,34 +1,30 @@
 import Bullet from "./bullets";
+import { Util } from "./util"
 
 class Player {
     constructor(ctx, game) {
         this.game = game;
         this.ctx = ctx
-   
         this.health = 10
         this.direction 
         this.pos = {
             x: 100,
             y: 100
-        }
+        };
         //player position
         this.cursorPos = {
             x: 0,
             y: 0
-        }
-        this.lastFire = new Date()
-
-  
+        };
+        this.lastFire = new Date();
         this.height = game.height;
         this.width = game.width;
         this.size = {
             x: 10,
             y: 10
-        }
+        };
         this.currentWeapon = ["Gun1",
-                              "Gun2"]
-
-   
+                              "Gun2"];
     }
 
 
@@ -38,12 +34,9 @@ class Player {
     }
 
     moveRight() {
- 
-        if (this.pos.x < (this.width - this.size.x))  {
-           
+        if (this.pos.x < (this.width - this.size.x))  {   
             this.pos.x += 10;
-        }
-        
+        }     
     }
 
     moveUp() {
@@ -68,7 +61,6 @@ class Player {
     changeWeapon() {
         [this.currentWeapon[0], this.currentWeapon[1]] =
         [this.currentWeapon[1], this.currentWeapon[0]]
-
     }
 
 
@@ -78,8 +70,16 @@ class Player {
         this.ctx.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
+    isBossCollidedWith(otherObject) {
+        if (otherObject instanceof Project) {
+            if (Util.distBoss(this, otherObject) ){
+                return true 
+            }
+            return false 
+        }
+        return false
+    }
 
- 
 
 
 }
