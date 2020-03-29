@@ -1,10 +1,11 @@
 #game-canvas {
-    border: 1px solid black;
+    border: 2px solid fuchsia;
 }
 
 .Main {
+    padding-top: 10px; 
     display: flex;
     justify-content: center;
     align-items: center; 
-    background-color: white; 
+    background-color:#120458; 
 }

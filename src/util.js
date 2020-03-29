@@ -15,9 +15,10 @@ export const Util = {
     distBoss(boss, bullet) {
         const xDist = Math.abs((bullet.x ) - (boss.pos.x))
         const yDist = Math.abs((bullet.y ) - (boss.pos.y))
-        if (  (xDist < boss.width && yDist < boss.height)
+        if (  ((xDist * 2) < boss.width && (yDist *2) < boss.height)
         )
          {
+         
             return true 
         
         } 
@@ -30,7 +31,7 @@ export const Util = {
         const xDist = Math.abs((projectile.x ) - (player.pos.x))
         const yDist = Math.abs((projectile.y ) - (player.pos.y))
        
-        if (  (xDist < player.size.x && yDist < player.size.y))
+        if (  ((xDist *2)  < player.size.x && (yDist *2) < player.size.y ))
 
          { return true } 
         return false 

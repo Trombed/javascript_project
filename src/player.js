@@ -5,8 +5,7 @@ class Player {
     constructor(ctx, game) {
         this.game = game;
         this.ctx = ctx
-        this.health = 10
-        this.direction 
+   
         this.pos = {
             x: 100,
             y: 100
@@ -66,8 +65,8 @@ class Player {
 
     draw() {
         this.ctx.clearRect(0,0,this.width,this.height);
-        this.ctx.strokeStyle = "#FF0000";
-        this.ctx.strokeRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
+        this.ctx.fillStyle = "#ff124f";
+        this.ctx.fillRect( this.pos.x, this.pos.y, this.size.x, this.size.y);
     }
 
     collidedWith() {  

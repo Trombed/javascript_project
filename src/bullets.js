@@ -44,8 +44,8 @@ class Bullet extends MovingObject {
     }
 
     draw() {
-        this.ctx.strokeStyle = "Black";
-        this.ctx.strokeRect( this.x, this.y, this.width, this.height)  
+        this.ctx.fillStyle = "#ff124f";
+        this.ctx.fillRect( this.x, this.y, this.width, this.height)  
     }
 
     drawNothing() {

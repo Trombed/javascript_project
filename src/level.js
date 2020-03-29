@@ -1,7 +1,7 @@
 import Enemy from "./enemy";
 
 class Level {
-    constructor(game) {
+    constructor(game, level) {
         this.game = game
         
        
@@ -9,7 +9,8 @@ class Level {
 
     startNewLevel() {
         this.game.currentLevel += 1;
-
+        this.game.bullets = []
+        this.game.projectiles = []
         if ( (this.game.currentLevel % 3) === 0) {
             this.normalLevel()
     
@@ -20,8 +21,8 @@ class Level {
     }
 
     normalLevel() {
-        for(let i = 0; i < this.game.currentLevel; i++) {
-           
+        for(let i = 0; i < 1; i++) {
+     
             this.game.addEnemy();
             
         }

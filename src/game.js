@@ -11,9 +11,7 @@ class Game {
         this.ctx = ctx;
         this.height = this.ctx.canvas.height-100;
         this.width = this.ctx.canvas.width;
-        this.bullets = [];
-        this.projectiles = [];
-        this.enemies = [];
+
         this.gameStarted = false;
         this.currentLevel = 0;
         this.paused = false
@@ -21,29 +19,34 @@ class Game {
         this.level = new Level(this)
         this.control = new Control(this.player, canvas, this)
         this.splash();
-        
-      
-
-     
+        this.gameEnded = true;
     }
 
     splash() {
-        this.ctx.clearRect(0,0,this.width,this.height)
-        this.ctx.font = "12px Arial";
-        this.ctx.fillStyle = "red";
-        this.ctx.fillText("PRESS ENTER TO START",230, 280);
-        // this.gameStart()
+
+        this.ctx.font = "30px Arial";
+        this.ctx.fillStyle = "fuchsia";
+        this.ctx.fillText("PRESS ENTER TO START",120, 280)   
+
     }
+
+
 
     startGame() {
         if (!this.gameStarted) {
             this.gameStarted = true;
+            this.currentLevel = 0
+            this.player.health = 5;
+            this.bullets = [];
+            this.projectiles = [];
+            this.enemies = [];
             this.gameStart()
         }
     }
 
     gameStart() {
-   
+        this.ctx.clearRect(0,0,this.width,this.height)
+
         this.level.startNewLevel()
         this.animate();
     }
@@ -61,10 +64,9 @@ class Game {
   
     
     animate() {
-        requestAnimationFrame(this.animate.bind(this))
-        if (!this.paused ) {
+        this.start = requestAnimationFrame(this.animate.bind(this))
+        if (!this.paused) {
             this.ctx.clearRect(0,0,this.width,this.height)
-            this.ctx.fillStyle ="silver";
             this.ctx.fillRect(0,0, this.ctx.width,this.ctx.height);
             this.player.draw()
 
@@ -96,11 +98,12 @@ class Game {
                 }
             }
             if (this.projectiles !== undefined) { 
-                this.projectiles.forEach( projectile => (
+                this.projectiles.forEach( projectile => {
                     projectile.fire()
-                
+                 
+            
 
-                ))
+                })
             }
 
             for (let i = 0; i < this.projectiles.length; i++) {
@@ -115,7 +118,7 @@ class Game {
             
 
             this.ctx.font = "30px Arial";
-            this.ctx.fillStyle = "red";
+            this.ctx.fillStyle = "#ff124f";
             this.ctx.clearRect(0,500,this.width,this.height+100)
             this.ctx.fillText(this.player.currentWeapon[0],30, 580);
             this.ctx.font = "20px Arial";
@@ -128,19 +131,27 @@ class Game {
         
         } if (this.paused) {
             this.ctx.font = "48px Arial";
-            this.ctx.fillStyle = "red";
+            this.ctx.fillStyle = "#ff124f";
             this.ctx.fillText("PAUSED",400, 400);
         } if (this.enemies.length === 0) {
             this.level.startNewLevel();
         } if (this.player.health <= 0) {
-            this.gameOver() 
-        }
+            this.gameOver()
+            
+        } 
     }
 
     gameOver() {
+        cancelAnimationFrame(this.start)
+        this.gameStarted = false;
+        this.gameEnded = true;
         this.ctx.font = "48px Arial";
-        this.ctx.fillStyle = "red";
-        this.ctx.fillText("GAME OVER",400, 400);
+        this.ctx.fillStyle = "fuchsia";
+        this.ctx.fillText("GAME OVER",150, 300);
+        this.ctx.font = "30px Arial";
+        this.ctx.fillText("Press P to Restart",170, 350);
+        
+
     }
 
     remove(object) {

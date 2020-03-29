@@ -17,6 +17,7 @@ class Enemy extends MovingObject {
         this.height = 5;
         this.gameHeight = game.height;
         this.gameWidth = game.width;
+        this.speed = 5
         this.lastFire = new Date();
         this.lastMove = new Date();
         this.moveToward = {
@@ -30,8 +31,8 @@ class Enemy extends MovingObject {
     }
 
     draw() {
-    this.ctx.strokeStyle = "Brown";
-    this.ctx.strokeRect( this.pos.x, this.pos.y, this.width,this.height)
+    this.ctx.fillStyle = "yellow";
+    this.ctx.fillRect( this.pos.x, this.pos.y, this.width,this.height)
     this.fire()
     }
 
@@ -53,7 +54,7 @@ class Enemy extends MovingObject {
     fire() {
         const date = new Date();
         if (date - this.lastFire > 1000) {
-            this.game.projectiles.push(new EnemyProjectile(this.game, this.pos, this.width, this.height))
+            this.game.projectiles.push(new EnemyProjectile(this.game, this.pos, this.width, this.height, this.speed))
             this.lastFire = date;
       
         }

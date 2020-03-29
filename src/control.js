@@ -25,10 +25,10 @@ class Control {
              this.game.paused = !this.game.paused;
     
           
+        } if (this.keys['KeyR'] && this.game.gameEnded) {
+            this.game.startGame()
+            this.game.gameEnded = false;
         }
-
-            
-        
 
         })
     
