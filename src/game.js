@@ -106,7 +106,11 @@ class Game {
             for (let i = 0; i < this.projectiles.length; i++) {
                 
                     const projectile = this.projectiles[i];
-                    projectile.isCollidedWith(this.player)
+                    if (projectile.isCollidedWithPlayer(this.player)) {
+                     
+                      this.player.collidedWith()
+                    }
+                    
                 }
             
 
@@ -128,7 +132,15 @@ class Game {
             this.ctx.fillText("PAUSED",400, 400);
         } if (this.enemies.length === 0) {
             this.level.startNewLevel();
+        } if (this.player.health <= 0) {
+            this.gameOver() 
         }
+    }
+
+    gameOver() {
+        this.ctx.font = "48px Arial";
+        this.ctx.fillStyle = "red";
+        this.ctx.fillText("GAME OVER",400, 400);
     }
 
     remove(object) {
