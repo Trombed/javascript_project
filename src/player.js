@@ -7,8 +7,8 @@ class Player {
         this.ctx = ctx
    
         this.pos = {
-            x: 100,
-            y: 100
+            x: 300,
+            y: 450
         };
         //player position
         this.cursorPos = {

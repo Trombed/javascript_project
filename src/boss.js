@@ -49,7 +49,7 @@ class Boss extends MovingObject {
 
     move() {
        const date = new Date();
-       const timer = Math.floor(Math.rand() * 200);
+       const timer = Math.floor(Math.rand() * 500);
        this.moveToward.x = Math.floor(Math.rand() * this.gameWidth);
        this.moveToward.y = Math.floor(Math.rand() * this.gameHeight);
     }   

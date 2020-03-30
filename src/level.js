@@ -11,7 +11,7 @@ class Level {
         this.game.currentLevel += 1;
         this.game.bullets = []
         this.game.projectiles = []
-        if ( (this.game.currentLevel % 3) === 0) {
+        if ( (this.game.currentLevel % 3) !== 0) {
             this.normalLevel()
     
         } else  {
@@ -21,7 +21,7 @@ class Level {
     }
 
     normalLevel() {
-        for(let i = 0; i < 1; i++) {
+        for(let i = 0; i < 5; i++) {
      
             this.game.addEnemy();
             
@@ -30,6 +30,8 @@ class Level {
 
     bossLevel() {
         this.game.addBoss();
+    
+      
     }
 }
 

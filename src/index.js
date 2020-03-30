@@ -10,5 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvasHeight = canvas.height
     ctx.fillStyle = "#120458";
     ctx.fillRect(0,0, canvasWidth,canvasHeight);
+    document.fonts.ready
     const game = new Game(ctx, canvas);
   });

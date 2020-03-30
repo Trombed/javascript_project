@@ -8,4 +8,20 @@
     justify-content: center;
     align-items: center; 
     background-color:#120458; 
+    flex-direction: column
+}
+
+
+.fab {
+    color: white; 
+    font-size: 3rem; 
+}
+
+.Icons {
+    padding-top: 2vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
 }

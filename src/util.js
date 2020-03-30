@@ -15,7 +15,7 @@ export const Util = {
     distBoss(boss, bullet) {
         const xDist = Math.abs((bullet.x ) - (boss.pos.x))
         const yDist = Math.abs((bullet.y ) - (boss.pos.y))
-        if (  ((xDist * 2) < boss.width && (yDist *2) < boss.height)
+        if (  ( xDist < boss.width && yDist  < boss.height)
         )
          {
          

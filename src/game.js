@@ -24,10 +24,12 @@ class Game {
 
     splash() {
 
-        this.ctx.font = "30px Arial";
+        
+        
         this.ctx.fillStyle = "fuchsia";
+        this.ctx.font = "30px Audiowide";
+        this.ctx.fillText("NotSoTouHou",120, 180) 
         this.ctx.fillText("PRESS ENTER TO START",120, 280)   
-
     }
 
 
@@ -116,12 +118,19 @@ class Game {
                     
                 }
             
-
-            this.ctx.font = "30px Arial";
+            
+            this.ctx.font = "30px Audiowide";
             this.ctx.fillStyle = "#ff124f";
+            this.ctx.strokeStyle = "fuchsia"
+            this.ctx.strokeWidth = "2"
+            this.ctx.beginPath();
+            this.ctx.lineWidth = "3"
+            this.ctx.moveTo(0, 500);
+            this.ctx.lineTo(600,500);
+            this.ctx.stroke();
             this.ctx.clearRect(0,500,this.width,this.height+100)
             this.ctx.fillText(this.player.currentWeapon[0],30, 580);
-            this.ctx.font = "20px Arial";
+            this.ctx.font = "20px Audiowide";
             this.ctx.fillText(`Stage: ${this.currentLevel}`,30, 550);
             this.ctx.fillText(`Health: ${this.player.health}`,430, 580);
             
@@ -130,9 +139,10 @@ class Game {
     
         
         } if (this.paused) {
-            this.ctx.font = "48px Arial";
-            this.ctx.fillStyle = "#ff124f";
-            this.ctx.fillText("PAUSED",400, 400);
+            this.ctx.font = "48px Audiowide";
+            this.ctx.clearRect(0,0,this.width,this.height+100)
+            this.ctx.fillStyle = "fuchsia";
+            this.ctx.fillText("PAUSED",180, 300);
         } if (this.enemies.length === 0) {
             this.level.startNewLevel();
         } if (this.player.health <= 0) {
@@ -145,11 +155,12 @@ class Game {
         cancelAnimationFrame(this.start)
         this.gameStarted = false;
         this.gameEnded = true;
-        this.ctx.font = "48px Arial";
+        this.ctx.clearRect(0,0,this.width,this.height+100)
+        this.ctx.font = "48px Audiowide";
         this.ctx.fillStyle = "fuchsia";
-        this.ctx.fillText("GAME OVER",150, 300);
-        this.ctx.font = "30px Arial";
-        this.ctx.fillText("Press P to Restart",170, 350);
+        this.ctx.fillText("GAME OVER",150, 250);
+        this.ctx.font = "38px Audiowide";
+        this.ctx.fillText("Press R to Restart",120, 350);
         
 
     }
